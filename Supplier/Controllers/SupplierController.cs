@@ -38,7 +38,7 @@ namespace Supplier.Controllers
             return Ok(repository.GetAllSupplierData());
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpGet("GetSupplierOfPart")]
         public IActionResult GetSupplierOfPart(int id)
         {
@@ -69,6 +69,7 @@ namespace Supplier.Controllers
         }
 
         //working
+        [Authorize(Roles = "Admin")]
         [HttpPost("addSupplier")]
         public async Task<IActionResult> AddSupplier(SPView sup)
         {
@@ -86,7 +87,7 @@ namespace Supplier.Controllers
                 
         }
 
-       
+        [Authorize(Roles = "Admin")]
         [HttpPut("UpdateSupplier")]
         public async Task<IActionResult> UpdateSupplier(SPView request)
         {
@@ -104,6 +105,8 @@ namespace Supplier.Controllers
                 
         }
 
+
+        [Authorize(Roles = "Admin")]
         [HttpPut("UpdateFeedback")]
 
         public async Task<IActionResult> UpdateFeedback(Supplier_data request)
